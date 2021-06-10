@@ -10,16 +10,13 @@
   <title>Купить книгу "Ночной мститель" | Автор: Наталья Бошин</title>
 
   <!-- Bootstrap & jQuery -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+    integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
     crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-    crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"
+    integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT"
     crossorigin="anonymous"></script>
   <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.js"></script>
 
@@ -39,17 +36,16 @@
   <header>
     <div class="desktop">
       <div class="logo">
-        <h1 class="logo__title">Ночной мститель</h1>
+        <a href="/index.html"><h1 class="logo__title">Ночной мститель</h1></a>
       </div>
       <div class="nav">
-        <a href="#why" class="nav__link">Реферальная система</a>
-        <a href="#how" class="nav__link">О книге</a>
+        <a href="#how" class="nav__link">Реферальная система</a>
+        <a href="#about" class="nav__link">О книге</a>
         <a href="#reviews" class="nav__link">Об авторе</a>
-        <a href="#reviews" class="nav__link"><b>Купить книгу</b></a>
+        <a href="" class="nav__link" data-bs-toggle="modal" data-bs-target="#buyBook"><b>Купить книгу</b></a>
       </div>
       <div class="contact">
         <a href="/user.html"><button type="button" class="btn contact__btn">Личный кабинет</button></a>
-
       </div>
     </div>
     <div class="mobile header-mobile">
@@ -59,15 +55,16 @@
             <img src="images/burger.png" alt="Меню">
           </button>
           <div class="dropdown-menu">
-            <a href="#why" class="nav__link dropdown-item">Реферальная система</a>
-            <a href="#how" class="nav__link dropdown-item">О книге</a>
+            <a href="#how" class="nav__link dropdown-item">Реферальная система</a>
+            <a href="#about" class="nav__link dropdown-item">О книге</a>
             <a href="#reviews" class="nav__link dropdown-item">Об авторе</a>
-            <a href="#reviews" class="nav__link dropdown-item"><b>Купить книгу</b></a>
+            <a href="" class="nav__link dropdown-item" data-bs-toggle="modal" data-bs-target="#buyBook"><b>Купить
+                книгу</b></a>
           </div>
         </div>
       </div>
       <div class="logo">
-        <h1 class="logo__title logo__title-mobile">Ночной мститель</h1>
+        <a href="/index.html"><h1 class="logo__title logo__title-mobile">Ночной мститель</h1></a>
       </div>
     </div>
   </header>
@@ -77,7 +74,8 @@
         <h1 class="main__title">Эксклюзивное произведение</h1>
         <h2 class="main__subtitle">Захватывающий сюжет, неожиданная развязка, интересные герои и многое другое в книге
           "Ночной мститель"</h2>
-        <a href="/user.html"><button type="button" class="btn main__btn">Купить книгу</button></a>
+        <button type="button" class="btn main__btn" data-bs-toggle="modal" data-bs-target="#buyBook">Купить
+          книгу</button>
       </div>
       <div class="main__image">
         <img src="images/main.jpg" alt="Обложка книги" class="main__image_size">
@@ -175,13 +173,13 @@
         </div>
       </div>
     </section>
+    <a id="about"></a>
     <section class="feauters">
-      <!-- <a href="" id=""></a> -->
       <div class="feauters__wrapper">
         <h2 class="feauters__title">О книге</h2>
         <div class="feauters__content">
           <div class="feauters__info">
-            <h4>Аннотация</h4>
+            <h4 class="feauters__subtitle">Аннотация</h4>
             <p class="feauters__text">У охочих до сплетен жителей Анже уже давно нет поводов для
               пересудов, ведь единственное значительное событие произошло в их городке тридцать лет назад. Именно тогда
               пожар полностью уничтожил фамильное гнездо Графа Асвары, забрав с собой жизни владельца имения, его сына
@@ -190,7 +188,8 @@
               не всегда умирают со своими владельцами, выходя на свет спустя десятилетия, чтобы подыскать себе новых
               хранителей. На этот раз втянутым в паутину интриг оказалось скромное семейство Дюпонт, проживающее на
               задворках Анже...</p>
-            <button type="button" class="btn btn-success btn-lg">Купить книгу</button>
+            <button type="button" class="btn btn-success btn-lg" data-bs-toggle="modal" data-bs-target="#buyBook">Купить
+              книгу</button>
           </div>
           <div class="feauters__images">
             <div class="feauters__row">
@@ -210,9 +209,9 @@
         <h2 class="cta__title">Купить книгу</h2>
         <h3 class="cta__subtitle">Оставьте номер телефона и мы перезвоним вам</h3>
         <div class="cta__form">
-          <form action="telegram.php" method="POST" class="cta__inputs">
+          <form class="cta__inputs">
             <input type="tel" name="phone" class="cta__input" placeholder="Номер телефона" required>
-            <select class="cta__input cta__input-special" name="communication" aria-placeholder="Способ связи">
+            <select class="cta__input cta__input-special" name="type" aria-placeholder="Способ связи">
               <option>Способ связи</option>
               <option value="WhatsApp">WhatsApp</option>
               <option value="Viber">Viber</option>
@@ -222,74 +221,116 @@
                 class="btn__text-hide">Отправлено</span></button>
           </form>
           <center>
-            <p class="cta__text">Нажимая кнопку "Позвоните мне", я даю своё согласие на обработку моих персональных данных</p>
+            <p class="cta__text">Нажимая кнопку "Позвоните мне", я даю своё согласие на обработку моих персональных
+              данных</p>
           </center>
         </div>
       </div>
     </section>
-    
-    <!-- <section class="form">
-      <img src="images/bg-form.png" alt="" class="form__bg">
-      <h2 class="form__title">Оставьте заявку</h2>
-      <h3 class="form__subtitle">Мы свяжемся с вами, обсудим детали,<br>сориентируем по цене и объему</h3>
-      <center>
-        <div class="form__wrapper">
-          <form action="telegram.php" method="POST">
-            <h6 class="form__headline-input">Ваше имя:</h6>
-            <input type="text" name="name" class="form_input" placeholder="Иванов Иван">
-            <h6 class="form__headline-input">Номер телефона:</h6>
-            <input type="tel" name="phone" class="form_input" placeholder="+7(999)-999-99-99" required>
-            <h6 class="form__headline-input">Удобный способ связи:</h6>
-            <select class="form_input" name="communication">
-              <option>Не выбрано</option>
-              <option value="WhatsApp">WhatsApp</option>
-              <option value="Viber">Viber</option>
-              <option value="Telegram">Telegram</option>
-            </select>
-            <button type="submit" class="btn form__btn"><span class="btn__text-show">Оставить заявку</span><span
-                class="btn__text-hide">Отправлено</span></button>
-            <p class="form__text">Нажимая кнопку "Оставить заявку", я даю своё согласие на обработку моих персональных
-              данных в соответствии с Федеральным законом от 27.07.2006 года №152‑ФЗ "О персональных данных", на
-              условиях и для целей, определённых в Согласии на обработку персональных данных.</p>
-          </form>
-        </div>
-      </center>
-    </section> -->
-  </main>
-  <!-- <div class="modal fade" id="callback" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-    aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle">Оставьте номер телефона и мы перезвоним вам в течение 10
-            минут</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <form action="telegram.php" method="POST">
-            <h6 class="form__headline-input">Ваше имя:</h6>
-            <input type="text" class="form_input" name="name" placeholder="Иванов Иван">
-            <h6 class="form__headline-input">Номер телефона:</h6>
-            <input type="tel" name="phone" class="form_input" placeholder="+7(999)-999-99-99" required>
-            <h6 class="form__headline-input">Удобный способ связи:</h6>
-            <select class="form_input" name="communication">
-              <option>Не выбрано</option>
-              <option value="WhatsApp">WhatsApp</option>
-              <option value="Viber">Viber</option>
-              <option value="Telegram">Telegram</option>
-            </select>
-            <center><button type="submit" class="btn form__btn"><span class="btn__text-show">Оставить заявку</span><span
-                  class="btn__text-hide">Отправлено</span></button></center>
-            <p class="form__text">Нажимая кнопку "Оставить заявку", я даю своё согласие на обработку моих персональных
-              данных в соответствии с Федеральным законом от 27.07.2006 года №152‑ФЗ "О персональных данных", на
-              условиях и для целей, определённых в Согласии на обработку персональных данных.</p>
-          </form>
+    <a href="" id="reviews"></a>
+    <section class="work about">
+      <h2 class="work__title">Об авторе</h2>
+      <h4 class="work__subtitle">Наталья Бошин</h4>
+      <div class="work__contact">
+        <a href="tel:+37378643001">+37378643001</a>
+        <a href="mailto:natalya_boshin@mail.ru">natalya_boshin@mail.ru</a>
+      </div>
+      <p class="about__text">Родилась, живёт и работает в городе Чимишлия (Молдова). Училась в университете в Комрате
+        АТО Гагаузии
+        (Молдова).
+        До момента когда я начала писать свою книгу, я пробовала себя в разных направлений. После окончания школы (9
+        класса) закончила курсы повара - кондитера и массажиста, только после этого только поступила в 10 (в лицейские
+        классы и сдала бакалавр), что позволило мне поступить в университет.
+        Именно на втором курсе начала писать историю в которой объединяются очень много судеб разных поколений.
+        Тем временем закончила лиценциат и магистратуру. И смогла вернутся в свой город, где успевала работать и писать
+        роман "Ночной мститель".</p>
+      <div class="about__socials">
+        <a href="https://vk.com/nocinoimstiteli" target="_blank" rel="noopener noreferrer"><img src="images/004-vk.png"
+            alt=""></a>
+        <a href="https://www.youtube.com/channel/UCoFuiOSPjXCzTf_M4hlkTUQ" target="_blank"
+          rel="noopener noreferrer"><img src="images/005-youtube.png" alt=""></a>
+        <a href="http://" target="_blank" rel="noopener noreferrer"><img src="images/agent.png" alt=""></a>
+        <a href="http://" target="_blank" rel="noopener noreferrer"><img src="images/001-viber.png" alt=""></a>
+        <a href="http://" target="_blank" rel="noopener noreferrer"><img src="images/002-whatsapp.png" alt=""></a>
+        <a href="https://www.instagram.com/natalia.boshin/?hl=ru" target="_blank" rel="noopener noreferrer"><img
+            src="images/003-instagram.png" alt=""></a>
+      </div>
+    </section>
+    <!-- Modal -->
+    <div class="modal fade" id="buyBook" tabindex="-1" aria-labelledby="buyBookLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="buyBookLabel">Купить книгу</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="modal__choice">
+              <h6>Выберите вариант получения книги</h6>
+              <select name="" id="format-choice" class="form-select" aria-label="Выбор формата получения книги">
+                <option value="e-book" selected>Электронный формат</option>
+                <option value="print">Печатное издание</option>
+              </select>
+            </div>
+            <div class="modal__forms">
+              <div class="modal__e-book">
+                <h6>Оформите заказ на получение книги в электронном формате</h6>
+                <form>
+                  <div class="mb-3">
+                    <label for="InputEmail1" class="form-label">Электронная почта</label>
+                    <input type="email" class="form-control" id="InputEmail1" aria-describedby="emailHelp1" required>
+                    <div id="emailHelp1" class="form-text">На неё будет выслана книга</div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="InputPromo1" class="form-label">Промокод</label>
+                    <input type="text" class="form-control" id="InputPromo1">
+                  </div>
+                </form>
+              </div>
+              <div class="modal__print">
+                <h6>Оформите заказ на получение книги в печатном издании</h6>
+                <form>
+                  <div class="mb-3">
+                    <label for="InputName1" class="form-label">Имя</label>
+                    <input type="text" class="form-control" id="InputName1">
+                  </div>
+                  <div class="mb-3">
+                    <label for="InputEmail2" class="form-label">Электронная почта</label>
+                    <input type="email" class="form-control" id="InputEmail2" required>
+                  </div>
+                  <div class="mb-3">
+                    <label for="InputPhone1" class="form-label">Телефон</label>
+                    <input type="tel" class="form-control" id="InputPhone1">
+                  </div>
+                  <div class="mb-3">
+                    <label for="InputCity1" class="form-label">Город</label>
+                    <input type="text" class="form-control" id="InputCity1" required>
+                  </div>
+                  <div class="mb-3">
+                    <label for="InputIndex1" class="form-label">Индекс</label>
+                    <input type="number" class="form-control" id="InputIndex1" required>
+                  </div>
+                  <div class="mb-3">
+                    <label for="InputAdress1" class="form-label">Адрес</label>
+                    <input type="text" class="form-control" id="InputEmail1" aria-describedby="adressHelp" required>
+                    <div id="adressHelp" class="form-text">Улица, номер дом</div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="InputPromo2" class="form-label">Промокод</label>
+                    <input type="text" class="form-control" id="InputPromo2">
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-link btn-sm" data-bs-dismiss="modal">Закрыть</button>
+            <button type="button" class="btn btn-primary" id="next-step">Продолжить</button>
+          </div>
         </div>
       </div>
     </div>
-  </div> -->
+  </main>
   <footer>
     <div class="footer">
       <div class="desktop">
@@ -298,10 +339,11 @@
         </div>
         <div class="contacts-footer">
           <span class="contacts-footer__icons-mobile">
-          <a href="" class="footer_mail-style"></a>
+            <a href="" class="footer_mail-style"></a>
         </div>
         <div>
-          <button type="button" class="btn contact__btn" data-toggle="modal" data-target="#callback">Купить книгу</button>
+          <button type="button" class="btn contact__btn" data-bs-toggle="modal" data-bs-target="#buyBook">Купить
+            книгу</button>
         </div>
       </div>
       <div class="mobile">
@@ -309,8 +351,9 @@
           <h1 class="logo__title logo__title-mobile">Ночной мститель</h1>
         </div>
         <div>
-          <button type="button" class="btn contact__btn" data-toggle="modal" data-target="#callback"><img
-              src="images/telephone.png" alt="" class="footer__call-img">Купить книгу</button>
+          <button type="button" class="btn contact__btn" data-toggle="modal" data-target="#buyBook"><img
+              src="images/telephone.png" alt="" class="footer__call-img" data-bs-toggle="modal"
+              data-bs-target="#buyBook">Купить книгу</button>
         </div>
         <div>
           <a href="" class="footer_mail-style"></a>
@@ -320,8 +363,8 @@
     <p class="footer__text">© 2021. Все права защищены.</p>
   </footer>
   <!-- Scripts -->
-  <script src="https://yastatic.net/q/forms-frontend-ext/_/embed.js"></script>
   <script src="js/script.js"></script>
+  
 </body>
 
 </html>
