@@ -131,11 +131,11 @@
       <div class="output">
         <h5 class="user-main__subtitle">Вывод средств</h5>
         <p class="user__text">Вывод доступен не чаще, чем 1 раз в 2 недели. Минимальная сумма вывода: 2000 ₽</p>
-        <form action="index.php" method="POST">
+        <form action="https://formspree.io/f/xjvjrglk" method="POST">
           <div class="mb-3">
             <div class="user__input">
-              <label for="walletEmail1" class="form-label" name="wallet">Введите номер банковской карты</label>
-              <input type="number" class="form-control" id="inputWallet1" aria-describedby="walletHelp" required>
+              <label for="walletEmail1" class="form-label">Введите номер банковской карты</label>
+              <input type="number" class="form-control" id="inputWallet1" name="wallet" aria-describedby="walletHelp" required>
               <input type="email" style="display: none;" name="email" id="inputEmail3" value="">
               <div id="walletHelp" class="form-text output__date">Дата последнего вывода: </div>
             </div>
@@ -149,11 +149,12 @@
     <div class="footer">
       <div class="desktop">
         <div>
-          <h1 class="logo__title">Ночной мститель</span></h1>
+          <h1 class="logo__title">Ночной мститель</h1>
         </div>
         <div class="contacts-footer">
           <span class="contacts-footer__icons-mobile">
             <a href="" class="footer_mail-style"></a>
+            </span>
         </div>
         <div>
           <button type="button" class="btn contact__btn" data-bs-toggle="modal" data-bs-target="#buyBook">Купить

@@ -79,6 +79,12 @@ if (window.location.pathname === '/user.html') {
         money = Number(user.photoURL.split('/')[0]),
         date = Number(user.photoURL.split('/')[1])
 
+      firebase.firestore().collection('users').doc('admin@admin.com').get().then((doc) => {
+        if (doc.exists) {
+          console.log(doc.data())
+        }
+      })
+
       $('.user__name').text(name)
       $('.user__email').text(`Email: ${email}`)
       $('.user__money').text(`Баланс: ${money} ₽`)
