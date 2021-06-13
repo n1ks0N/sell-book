@@ -1087,6 +1087,9 @@ footer {
   .form__wrapper {
     width: 100%;
   }
+  .about__text {
+    width: 90%;
+  }
 }
 
 @media (max-width: 550px) {
@@ -1236,10 +1239,17 @@ footer {
   .feauters {
     padding-bottom: 40px;
     padding-top: 70px;
+    padding-left: 10px;
+    padding-right: 10px;
   }
   .feauters__title, .cta__title, .work__title, .reviews__title, .form__title {
     font-size: 30px;
     line-height: 33px;
+  }
+  .feauters__row {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
   }
   .work {
     padding-bottom: 30px;
@@ -1339,6 +1349,7 @@ footer {
 
 .user-main__subtitle {
   text-align: left;
+  font-weight: bold;
 }
 
 .user {
@@ -1361,6 +1372,7 @@ footer {
 .user__text {
   margin-top: 20px;
   font-size: 16px;
+  text-align: left;
 }
 
 .output {
@@ -1382,5 +1394,9 @@ footer {
 
 .btn-copy {
   margin-top: 15px;
+}
+
+.btn-out {
+  margin-top: 30px;
 }
 /*# sourceMappingURL=style.css.map */

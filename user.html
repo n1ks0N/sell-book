@@ -5,9 +5,8 @@
   <meta http-equiv="Content-type" content="text/html; charset=utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=yes">
 
-  <title>Купить книгу "Ночной мститель" | Автор: Наталья Бошин</title>
+  <title>Личный кабинет консультанта | Купить книгу "Ночной мститель"</title>
 
   <!-- Bootstrap & jQuery -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -24,7 +23,7 @@
   <link rel="stylesheet" type="text/css" href="css/style.css">
   <link href="https://fonts.googleapis.com/css?family=Raleway&family=Roboto&display=swap" rel="stylesheet">
 
-  <!-- author -->
+  <!-- Author -->
   <meta name="author" content="https://kwork.ru/user/n1ks_on">
 
   <!--[if lt IE 9]>
@@ -59,7 +58,7 @@
     firebase.initializeApp(firebaseConfig);
     firebase.analytics();
   </script>
-  <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.0/firebase-ui-auth.css" />
+  <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.0/firebase-ui-auth.css">
 </head>
 
 <body>
@@ -71,27 +70,30 @@
         </a>
       </div>
       <div class="nav">
-        <a href="#how" class="nav__link">Реферальная система</a>
-        <a href="#about" class="nav__link">О книге</a>
-        <a href="#reviews" class="nav__link">Об авторе</a>
+        <a href="/index.html#how" class="nav__link">Реферальная система</a>
+        <a href="/index.html#about" class="nav__link">О книге</a>
+        <a href="/index.html#reviews" class="nav__link">Об авторе</a>
         <a href="" class="nav__link" data-bs-toggle="modal" data-bs-target="#buyBook"><b>Купить книгу</b></a>
       </div>
       <div class="contact">
-        <a href="/user.html"><button type="button" class="btn contact__btn">Личный кабинет</button></a>
+        <a href="#"><button type="button" class="btn contact__btn">Личный кабинет</button></a>
       </div>
     </div>
     <div class="mobile header-mobile">
       <div class="burger">
         <div class="btn-group">
           <button type="button" class="btn" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
-            <img src="images/burger.png" alt="Меню">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+            </svg>
           </button>
           <div class="dropdown-menu">
-            <a href="#how" class="nav__link dropdown-item">Реферальная система</a>
-            <a href="#about" class="nav__link dropdown-item">О книге</a>
-            <a href="#reviews" class="nav__link dropdown-item">Об авторе</a>
-            <a href="" class="nav__link dropdown-item" data-bs-toggle="modal" data-bs-target="#buyBook"><b>Купить
+            <a href="/index.html#how" class="nav__link dropdown-item">Реферальная система</a>
+            <a href="/index.html#about" class="nav__link dropdown-item">О книге</a>
+            <a href="/index.html#reviews" class="nav__link dropdown-item">Об авторе</a>
+            <a href="#" class="nav__link dropdown-item" data-bs-toggle="modal" data-bs-target="#buyBook"><b>Купить
                 книгу</b></a>
+            <a href="#"><button type="button" class="btn contact__btn">Личный кабинет</button></a>
           </div>
         </div>
       </div>
@@ -124,10 +126,10 @@
       </div>
       <div class="user__input">
         <h5 class="user-main__subtitle">Реферальная ссылка</h5>
+        <p class="user__text">Делитесь ей в социальных сетях и зарабатывайте!</p>
         <input class="form-control" id="refInput" type="text" value="" disabled>
         <button type="button" class="btn btn-outline-primary btn-sm btn-copy">Копировать</button>
       </div>
-      <p class="user__text">Делитесь ей в социальных сетях и зарабатывайте!</p>
       <div class="output">
         <h5 class="user-main__subtitle">Вывод средств</h5>
         <p class="user__text">Вывод доступен не чаще, чем 1 раз в 2 недели. Минимальная сумма вывода: 2000 ₽</p>
@@ -135,13 +137,113 @@
           <div class="mb-3">
             <div class="user__input">
               <label for="walletEmail1" class="form-label">Введите номер банковской карты</label>
-              <input type="number" class="form-control" id="inputWallet1" name="wallet" aria-describedby="walletHelp" required>
+              <input type="number" class="form-control" id="inputWallet1" name="wallet" aria-describedby="walletHelp"
+                required>
               <input type="email" style="display: none;" name="email" id="inputEmail3" value="">
               <div id="walletHelp" class="form-text output__date">Дата последнего вывода: </div>
             </div>
           </div>
-          <div class="output__btn"><button type="submit" class="btn btn-success btn-lg">Заказать вывод</button></div>
+          <div class="output__btn"><button type="submit" class="btn btn-success btn-lg btn-pay">Заказать вывод</button></div>
         </form>
+      </div>
+      <button type="button" class="btn btn-secondary btn-sm btn-out">Выйти</button>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="buyBook" tabindex="-1" aria-labelledby="buyBookLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="buyBookLabel">Купить книгу</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="modal__choice">
+              <h6>Выберите вариант получения книги</h6>
+              <select name="" id="format-choice" class="form-select" aria-label="Выбор формата получения книги">
+                <option value="e-book" selected>Электронный формат</option>
+                <option value="print">Печатное издание</option>
+              </select>
+            </div>
+            <div class="modal__forms">
+              <div class="modal__e-book">
+                <h6>Оформите заказ на получение книги в электронном формате</h6>
+                <form>
+                  <div class="mb-3">
+                    <label for="InputEmail1" class="form-label">Электронная почта</label>
+                    <input type="email" class="form-control" id="InputEmail1" aria-describedby="emailHelp1" required>
+                    <div id="emailHelp1" class="form-text">На неё будет выслана книга</div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="InputPromo1" class="form-label">Промокод</label>
+                    <input type="text" class="form-control" id="InputPromo1">
+                  </div>
+                </form>
+              </div>
+              <div class="modal__print">
+                <h6>Оформите заказ на получение книги в печатном издании</h6>
+                  <form method="post" action="https://secure.wayforpay.com/pay" accept-charset="utf-8">
+                    <input name="merchantAccount" value="test_merch_n1">
+                    <input name="merchantAuthType" value="SimpleSignature">
+                    <input name="merchantDomainName" value="www.market.ua">
+                    <input name="merchantSignature" value="b95932786cbe243a76b014846b63fe92">
+                    <input name="orderReference" value="DH783023">
+                    <input name="orderDate" value="1415379863">
+                    <input name="amount" value="1547.36">
+                    <input name="currency" value="UAH">
+                    <input name="orderTimeout" value="49000">
+                    <input name="productName[]" value="Процессор Intel Core i5-4670 3.4GHz">
+                    <input name="productName[]" value="Память Kingston DDR3-1600 4096MB PC3-12800">
+                    <input name="productPrice[]" value="1000">
+                    <input name="productPrice[]" value="547.36">
+                    <input name="productCount[]" value="1">
+                    <input name="productCount[]" value="1">
+                    <input name="clientFirstName" value="Вася">
+                    <input name="clientLastName" value="Пупкин">
+                    <input name="clientAddress" value="пр. Гагарина, 12">
+                    <input name="clientCity" value="Днепропетровск">
+                    <input name="clientEmail" value="some@mail.com">
+                    <input name="defaultPaymentSystem" value="card">
+                    <button type="submit">Оплатить</button>
+
+                  <!-- <div class="mb-3">
+                    <label for="InputName1" class="form-label">Имя</label>
+                    <input type="text" class="form-control" id="InputName1">
+                  </div>
+                  <div class="mb-3">
+                    <label for="InputEmail2" class="form-label">Электронная почта</label>
+                    <input type="email" class="form-control" id="InputEmail2" required>
+                  </div>
+                  <div class="mb-3">
+                    <label for="InputPhone1" class="form-label">Телефон</label>
+                    <input type="tel" class="form-control" id="InputPhone1">
+                  </div>
+                  <div class="mb-3">
+                    <label for="InputCity1" class="form-label">Город</label>
+                    <input type="text" class="form-control" id="InputCity1" required>
+                  </div>
+                  <div class="mb-3">
+                    <label for="InputIndex1" class="form-label">Индекс</label>
+                    <input type="number" class="form-control" id="InputIndex1" required>
+                  </div>
+                  <div class="mb-3">
+                    <label for="InputAdress1" class="form-label">Адрес</label>
+                    <input type="text" class="form-control" id="InputAdress1" aria-describedby="adressHelp" required>
+                    <div id="adressHelp" class="form-text">Улица, номер дом</div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="InputPromo2" class="form-label">Промокод</label>
+                    <input type="text" class="form-control" id="InputPromo2">
+                  </div> -->
+                  
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-link btn-sm" data-bs-dismiss="modal">Закрыть</button>
+            <button type="button" class="btn btn-primary" id="next-step">Продолжить</button>
+          </div>
+        </div>
       </div>
     </div>
   </main>
@@ -154,7 +256,7 @@
         <div class="contacts-footer">
           <span class="contacts-footer__icons-mobile">
             <a href="" class="footer_mail-style"></a>
-            </span>
+          </span>
         </div>
         <div>
           <button type="button" class="btn contact__btn" data-bs-toggle="modal" data-bs-target="#buyBook">Купить

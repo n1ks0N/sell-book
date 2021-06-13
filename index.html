@@ -30,6 +30,35 @@
   <!--[if lt IE 9]>
 		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-app.js"></script>
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+  <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-analytics.js"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/ui/4.8.0/firebase-ui-auth.js"></script>
+  <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+
+  <!-- Add Firebase products that you want to use -->
+  <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-firestore.js"></script>
+  <script>
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    var firebaseConfig = {
+      apiKey: "AIzaSyAILVE4rShjkRd5zznxUlsmDxL7wri1diA",
+      authDomain: "night-wanderer-b6299.firebaseapp.com",
+      projectId: "night-wanderer-b6299",
+      storageBucket: "night-wanderer-b6299.appspot.com",
+      messagingSenderId: "23671319630",
+      appId: "1:23671319630:web:2ce9cb8cce61f7776d671f",
+      measurementId: "G-G6TWGDB3F7"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+  </script>
 </head>
 
 <body>
@@ -42,7 +71,7 @@
         <a href="#how" class="nav__link">Реферальная система</a>
         <a href="#about" class="nav__link">О книге</a>
         <a href="#reviews" class="nav__link">Об авторе</a>
-        <a href="" class="nav__link" data-bs-toggle="modal" data-bs-target="#buyBook"><b>Купить книгу</b></a>
+        <a href="#" class="nav__link" data-bs-toggle="modal" data-bs-target="#buyBook"><b>Купить книгу</b></a>
       </div>
       <div class="contact">
         <a href="/user.html"><button type="button" class="btn contact__btn">Личный кабинет</button></a>
@@ -52,7 +81,9 @@
       <div class="burger">
         <div class="btn-group">
           <button type="button" class="btn" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
-            <img src="images/burger.png" alt="Меню">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+            </svg>
           </button>
           <div class="dropdown-menu">
             <a href="#how" class="nav__link dropdown-item">Реферальная система</a>
@@ -60,6 +91,7 @@
             <a href="#reviews" class="nav__link dropdown-item">Об авторе</a>
             <a href="" class="nav__link dropdown-item" data-bs-toggle="modal" data-bs-target="#buyBook"><b>Купить
                 книгу</b></a>
+            <a href="user.html"><button type="button" class="btn contact__btn">Личный кабинет</button></a>
           </div>
         </div>
       </div>
@@ -210,7 +242,7 @@
         <h2 class="cta__title">Купить книгу</h2>
         <h3 class="cta__subtitle">Оставьте номер телефона и мы перезвоним вам</h3>
         <div class="cta__form">
-          <form class="cta__inputs">
+          <form class="cta__inputs" action="https://formspree.io/f/mnqlvjyq" method="POST">
             <input type="tel" name="phone" class="cta__input" placeholder="Номер телефона" required>
             <select class="cta__input cta__input-special" name="type" aria-placeholder="Способ связи">
               <option>Способ связи</option>
@@ -289,8 +321,31 @@
               </div>
               <div class="modal__print">
                 <h6>Оформите заказ на получение книги в печатном издании</h6>
-                <form>
-                  <div class="mb-3">
+                <form method="post" action="https://secure.wayforpay.com/pay" accept-charset="utf-8">
+                  <input name="merchantAccount" value="test_merch_n1">
+                  <input name="merchantAuthType" value="SimpleSignature">
+                  <input name="merchantDomainName" value="www.market.ua">
+                  <input name="merchantSignature" value="b95932786cbe243a76b014846b63fe92">
+                  <input name="orderReference" value="DH783023">
+                  <input name="orderDate" value="1415379863">
+                  <input name="amount" value="1547.36">
+                  <input name="currency" value="UAH">
+                  <input name="orderTimeout" value="49000">
+                  <input name="productName[]" value="Процессор Intel Core i5-4670 3.4GHz">
+                  <input name="productName[]" value="Память Kingston DDR3-1600 4096MB PC3-12800">
+                  <input name="productPrice[]" value="1000">
+                  <input name="productPrice[]" value="547.36">
+                  <input name="productCount[]" value="1">
+                  <input name="productCount[]" value="1">
+                  <input name="clientFirstName" value="Вася">
+                  <input name="clientLastName" value="Пупкин">
+                  <input name="clientAddress" value="пр. Гагарина, 12">
+                  <input name="clientCity" value="Днепропетровск">
+                  <input name="clientEmail" value="some@mail.com">
+                  <input name="defaultPaymentSystem" value="card">
+                  <button type="submit">Оплатить</button>
+                  
+                  <!-- <div class="mb-3">
                     <label for="InputName1" class="form-label">Имя</label>
                     <input type="text" class="form-control" id="InputName1">
                   </div>
@@ -312,13 +367,13 @@
                   </div>
                   <div class="mb-3">
                     <label for="InputAdress1" class="form-label">Адрес</label>
-                    <input type="text" class="form-control" id="InputEmail1" aria-describedby="adressHelp" required>
+                    <input type="text" class="form-control" id="InputAdress1" aria-describedby="adressHelp" required>
                     <div id="adressHelp" class="form-text">Улица, номер дом</div>
                   </div>
                   <div class="mb-3">
                     <label for="InputPromo2" class="form-label">Промокод</label>
                     <input type="text" class="form-control" id="InputPromo2">
-                  </div>
+                  </div> -->
                 </form>
               </div>
             </div>

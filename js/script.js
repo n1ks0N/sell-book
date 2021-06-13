@@ -14,13 +14,12 @@ const secondStep = (type) => {
       $('.modal__e-book').css('display', 'none')
       $('.modal__print').css('display', 'block')
       break;
-    default:
   }
 }
 
-$('.btn-copy').click(() => {
-  navigator.clipboard.writeText($('#refInput').val());
-})
+$('.btn-copy').click(() => navigator.clipboard.writeText($('#refInput').val()));
+$('.btn-out').click(() => firebase.auth().signOut());
+$('.btn-pay').click(() => firebase.firestore().collection('users').doc())
 
 
 var ui = new firebaseui.auth.AuthUI(firebase.auth());
@@ -63,7 +62,6 @@ var uiConfig = {
 ui.start('#firebaseui-auth-container', uiConfig);
 
 
-
 if (window.location.pathname === '/user.html') {
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
@@ -74,14 +72,24 @@ if (window.location.pathname === '/user.html') {
 
       const user = firebase.auth().currentUser,
         name = user.displayName,
-        email = user.email,
+        email = user.email.toLowerCase(),
         uid = user.uid,
-        money = Number(user.photoURL.split('/')[0]),
-        date = Number(user.photoURL.split('/')[1])
+        usersDB = firebase.firestore().collection('users')
+      let money = 0,
+        date = false
 
-      firebase.firestore().collection('users').doc('admin@admin.com').get().then((doc) => {
+      usersDB.doc(email).get().then((doc) => {
         if (doc.exists) {
-          console.log(doc.data())
+          money = doc.data().money
+          date = doc.data().date
+          if (ref) localStorage.setItem('ref', doc.data().ref)
+        } else {
+          // doc.data() will be undefined in this case
+          usersDB.doc(email).set({
+            money: 0,
+            date: false,
+            ref: localStorage.getItem('ref') ? localStorage.getItem('ref') : false
+          })
         }
       })
 
@@ -89,7 +97,7 @@ if (window.location.pathname === '/user.html') {
       $('.user__email').text(`Email: ${email}`)
       $('.user__money').text(`Баланс: ${money} ₽`)
       $('#refInput').val(`${window.location.origin}?ref=${email}`)
-      $('.output__date').text(`Дата последнего вывода: ${new Date(date)}`)
+      $('.output__date').text(`Дата последнего вывода: ${date ? new Date(date) : 'отсутствует'}`)
       $('#inputEmail3').val(email)
     } else {
       // User is signed out
@@ -97,4 +105,8 @@ if (window.location.pathname === '/user.html') {
       $('.user').css('display', 'none');
     }
   });
+}
+
+if (window.location.search.split('=')[0] === '?ref') {
+  localStorage.setItem('ref', window.location.search.split('=')[1])
 }
