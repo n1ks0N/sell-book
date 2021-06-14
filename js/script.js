@@ -1,8 +1,17 @@
+$('.promo').val(localStorage.getItem('ref'))
+
+$('#STATUS_URL').val(`${window.location.origin}`)
+$('#PAYMENT_URL').val(`${window.location.origin}`)
+$('#NOPAYMENT_URL').val(`${window.location.origin}`)
+
+
 $('#format-choice').change((e) => {
   secondStep(e.target.value)
+  $('#next-step').css('display', 'none')
 })
 $('#next-step').click(() => {
   secondStep($('#format-choice').val())
+  $('#next-step').css('display', 'none')
 })
 const secondStep = (type) => {
   switch (type) {
@@ -19,7 +28,41 @@ const secondStep = (type) => {
 
 $('.btn-copy').click(() => navigator.clipboard.writeText($('#refInput').val()));
 $('.btn-out').click(() => firebase.auth().signOut());
-$('.btn-pay').click(() => firebase.firestore().collection('users').doc())
+console.log(localStorage)
+if (localStorage.getItem('date') >= Date.now()) {
+  $('.btn-output').prop('disabled', true)
+}
+$('.btn-output').mousedown(() => {
+
+  firebase.firestore().collection('users').doc(localStorage.getItem('email')).set({
+    money: 0
+  }, { merge: true })
+})
+
+$('.btn-pay').mousedown((e) => {
+  if ($('.promo').val()) {
+    firebase.firestore().collection('users').doc($('.promo').val()).get().then((doc) => {
+      if (doc.exists) {
+        const ref = doc.data().ref
+        firebase.firestore().collection('users').doc($('.promo').val()).set({
+          money: doc.data().money + 700 * 0.4
+        }, { merge: true })
+        if (ref) {
+          firebase.firestore().collection('users').doc(ref).get().then((doc) => {
+            if (doc.exists) {
+              firebase.firestore().collection('users').doc(ref).set({
+                money: doc.data().money + 700 * 0.15
+              }, { merge: true })
+            }
+          })
+        }
+      }
+    })
+  }
+})
+$('.btn-pay').mouseup(() => {
+  if ($('#InputEmail1').val() || $('#InputEmail2').val() && $('#InputCity1').val() && $('#InputIndex1').val() && $('#InputAdress1').val()) window.open(`${window.location.origin}?pay=true`)
+})
 
 
 var ui = new firebaseui.auth.AuthUI(firebase.auth());
@@ -78,11 +121,21 @@ if (window.location.pathname === '/user.html') {
       let money = 0,
         date = false
 
+      localStorage.setItem('email', email);
+
       usersDB.doc(email).get().then((doc) => {
         if (doc.exists) {
           money = doc.data().money
-          date = doc.data().date
-          if (ref) localStorage.setItem('ref', doc.data().ref)
+          date = doc.data().date.seconds * 1000
+          console.log(date)
+          localStorage.setItem('date', date)
+          if (doc.data().ref) localStorage.setItem('ref', doc.data().ref)
+          $('.user__name').text(name)
+          $('.user__email').text(`Email: ${email}`)
+          $('.user__money').text(`Баланс: ${money} ₽`)
+          $('#refInput').val(`${window.location.origin}?ref=${email}`)
+          $('.output__date').text(`Дата последнего вывода: ${date ? new Date(date) : 'отсутствует'}`)
+          $('#inputEmail3').val(email)
         } else {
           // doc.data() will be undefined in this case
           usersDB.doc(email).set({
@@ -90,15 +143,14 @@ if (window.location.pathname === '/user.html') {
             date: false,
             ref: localStorage.getItem('ref') ? localStorage.getItem('ref') : false
           })
+          $('.user__name').text(name)
+          $('.user__email').text(`Email: ${email}`)
+          $('.user__money').text(`Баланс: ${money} ₽`)
+          $('#refInput').val(`${window.location.origin}?ref=${email}`)
+          $('.output__date').text(`Дата последнего вывода: ${date ? new Date(date) : 'отсутствует'}`)
+          $('#inputEmail3').val(email)
         }
       })
-
-      $('.user__name').text(name)
-      $('.user__email').text(`Email: ${email}`)
-      $('.user__money').text(`Баланс: ${money} ₽`)
-      $('#refInput').val(`${window.location.origin}?ref=${email}`)
-      $('.output__date').text(`Дата последнего вывода: ${date ? new Date(date) : 'отсутствует'}`)
-      $('#inputEmail3').val(email)
     } else {
       // User is signed out
       $('.login').css('display', 'block');
@@ -107,6 +159,10 @@ if (window.location.pathname === '/user.html') {
   });
 }
 
+
 if (window.location.search.split('=')[0] === '?ref') {
   localStorage.setItem('ref', window.location.search.split('=')[1])
+}
+if (window.location.search.split('=')[0] === '?pay') {
+  $('#perfectmoney').click()
 }

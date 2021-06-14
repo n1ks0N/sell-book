@@ -65,7 +65,9 @@
   <header>
     <div class="desktop">
       <div class="logo">
-        <a href="/index.html"><h1 class="logo__title">Ночной мститель</h1></a>
+        <a href="/index.html">
+          <h1 class="logo__title">Ночной мститель</h1>
+        </a>
       </div>
       <div class="nav">
         <a href="#how" class="nav__link">Реферальная система</a>
@@ -81,8 +83,10 @@
       <div class="burger">
         <div class="btn-group">
           <button type="button" class="btn" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
-              <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list"
+              viewBox="0 0 16 16">
+              <path fill-rule="evenodd"
+                d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
             </svg>
           </button>
           <div class="dropdown-menu">
@@ -96,7 +100,9 @@
         </div>
       </div>
       <div class="logo">
-        <a href="/index.html"><h1 class="logo__title logo__title-mobile">Ночной мститель</h1></a>
+        <a href="/index.html">
+          <h1 class="logo__title logo__title-mobile">Ночной мститель</h1>
+        </a>
       </div>
     </div>
   </header>
@@ -235,7 +241,7 @@
             </div>
           </div>
         </div>
-        </div>
+      </div>
     </section>
     <section class="cta">
       <div class="cta__wrapper">
@@ -307,73 +313,65 @@
             <div class="modal__forms">
               <div class="modal__e-book">
                 <h6>Оформите заказ на получение книги в электронном формате</h6>
-                <form>
+                <form class="modal__form" action="https://formspree.io/f/mzbyggdy" method="POST">
+                  <input type="hidden" name="type" value="Электронный формат">
                   <div class="mb-3">
-                    <label for="InputEmail1" class="form-label">Электронная почта</label>
+                    <label for="InputEmail1" class="form-label">Электронная почта *</label>
                     <input type="email" class="form-control" id="InputEmail1" aria-describedby="emailHelp1" required>
                     <div id="emailHelp1" class="form-text">На неё будет выслана книга</div>
                   </div>
                   <div class="mb-3">
                     <label for="InputPromo1" class="form-label">Промокод</label>
-                    <input type="text" class="form-control" id="InputPromo1">
+                    <input type="text" class="form-control promo" id="InputPromo1">
                   </div>
+                  <button type="submit" class="btn btn-success btn-pay">Купить книгу</button>
                 </form>
               </div>
               <div class="modal__print">
                 <h6>Оформите заказ на получение книги в печатном издании</h6>
-                <form method="post" action="https://secure.wayforpay.com/pay" accept-charset="utf-8">
-                  <input name="merchantAccount" value="test_merch_n1">
-                  <input name="merchantAuthType" value="SimpleSignature">
-                  <input name="merchantDomainName" value="www.market.ua">
-                  <input name="merchantSignature" value="b95932786cbe243a76b014846b63fe92">
-                  <input name="orderReference" value="DH783023">
-                  <input name="orderDate" value="1415379863">
-                  <input name="amount" value="1547.36">
-                  <input name="currency" value="UAH">
-                  <input name="orderTimeout" value="49000">
-                  <input name="productName[]" value="Процессор Intel Core i5-4670 3.4GHz">
-                  <input name="productName[]" value="Память Kingston DDR3-1600 4096MB PC3-12800">
-                  <input name="productPrice[]" value="1000">
-                  <input name="productPrice[]" value="547.36">
-                  <input name="productCount[]" value="1">
-                  <input name="productCount[]" value="1">
-                  <input name="clientFirstName" value="Вася">
-                  <input name="clientLastName" value="Пупкин">
-                  <input name="clientAddress" value="пр. Гагарина, 12">
-                  <input name="clientCity" value="Днепропетровск">
-                  <input name="clientEmail" value="some@mail.com">
-                  <input name="defaultPaymentSystem" value="card">
-                  <button type="submit">Оплатить</button>
-                  
-                  <!-- <div class="mb-3">
+                <form class="modal__form" action="https://formspree.io/f/mzbyggdy" method="POST">
+                  <input type="hidden" name="type" value="Печатное издание">
+                  <div class="mb-3">
                     <label for="InputName1" class="form-label">Имя</label>
-                    <input type="text" class="form-control" id="InputName1">
+                    <input type="text" class="form-control" name="name" id="InputName1">
                   </div>
                   <div class="mb-3">
-                    <label for="InputEmail2" class="form-label">Электронная почта</label>
-                    <input type="email" class="form-control" id="InputEmail2" required>
+                    <label for="InputEmail2" class="form-label">Электронная почта *</label>
+                    <input type="email" class="form-control" name="email" id="InputEmail2" name="PAYMENT_ID" required>
                   </div>
                   <div class="mb-3">
                     <label for="InputPhone1" class="form-label">Телефон</label>
-                    <input type="tel" class="form-control" id="InputPhone1">
+                    <input type="tel" class="form-control" name="tel" id="InputPhone1">
                   </div>
                   <div class="mb-3">
-                    <label for="InputCity1" class="form-label">Город</label>
-                    <input type="text" class="form-control" id="InputCity1" required>
+                    <label for="InputCity1" class="form-label">Город *</label>
+                    <input type="text" class="form-control" name="city" id="InputCity1" required>
                   </div>
                   <div class="mb-3">
-                    <label for="InputIndex1" class="form-label">Индекс</label>
-                    <input type="number" class="form-control" id="InputIndex1" required>
+                    <label for="InputIndex1" class="form-label">Индекс *</label>
+                    <input type="number" class="form-control" name="index" id="InputIndex1" required>
                   </div>
                   <div class="mb-3">
-                    <label for="InputAdress1" class="form-label">Адрес</label>
-                    <input type="text" class="form-control" id="InputAdress1" aria-describedby="adressHelp" required>
-                    <div id="adressHelp" class="form-text">Улица, номер дом</div>
+                    <label for="InputAdress1" class="form-label">Адрес *</label>
+                    <input type="text" class="form-control" name="adress" id="InputAdress1" aria-describedby="adressHelp" required>
+                    <div id="adressHelp" class="form-text">Улица, номер дома</div>
                   </div>
                   <div class="mb-3">
                     <label for="InputPromo2" class="form-label">Промокод</label>
-                    <input type="text" class="form-control" id="InputPromo2">
-                  </div> -->
+                    <input type="text" class="form-control promo" name="promo" id="InputPromo2">
+                  </div>
+                  <button type="submit" class="btn btn-success btn-pay">Купить книгу</button>
+                </form>
+                <form action="https://perfectmoney.is/api/step1.asp" method="POST">
+                    <input type="hidden" name="PAYEE_ACCOUNT" value="U14088887">
+                    <input type="hidden" name="PAYEE_NAME" value="Книга 'Ночной мститель'">
+                    <input type="hidden" name="PAYMENT_AMOUNT" value="9.69">
+                    <input type="hidden" name="PAYMENT_UNITS" value="USD">
+                    <input type="hidden" id="STATUS_URL" name="STATUS_URL" value="/">
+                    <input type="hidden" id="PAYMENT_URL" name="PAYMENT_URL" value="/">
+                    <input type="hidden" id="NOPAYMENT_URL" name="NOPAYMENT_URL" value="/">
+                    <input type="hidden" id="PAYMENT_ID" name="PAYMENT_ID" value="1">
+                    <input type="submit" name="PAYMENT_METHOD" value="Купить книгу" id="perfectmoney" style="display: none;">
                 </form>
               </div>
             </div>
@@ -395,7 +393,7 @@
         <div class="contacts-footer">
           <span class="contacts-footer__icons-mobile">
             <a href="" class="footer_mail-style"></a>
-            </span>
+          </span>
         </div>
         <div>
           <button type="button" class="btn contact__btn" data-bs-toggle="modal" data-bs-target="#buyBook">Купить
@@ -420,7 +418,7 @@
   </footer>
   <!-- Scripts -->
   <script src="js/script.js"></script>
-  
+
 </body>
 
 </html>
